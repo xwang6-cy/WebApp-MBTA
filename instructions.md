@@ -86,7 +86,14 @@ Now that we can find the coordinates of a given place, let's take things one ste
 #### Just a glimpse of history: MBTA stations in 50s
 ![Image of old T map with illustrations of each station](https://www.vanshnookenraggen.com/_index/wp-content/uploads/2017/08/MTA_System.jpg)
 
-To accomplish this, we will use the [*MBTA-realtime API*](https://api-v3.mbta.com/docs/swagger/index.html). Check out the details for `GET /stops` in the documentation.
+To accomplish this, we will use the [*MBTA-realtime API*](https://api-v3.mbta.com/docs/swagger/index.html). Check out the details for `GET /stops` in the documentation. **Hints**: Prepare valid latitude and longitude numbers of any Boston address for testing.Under `GET /stops`, click "Try it out" button. Enter/select the following parameters:
+- sort: select "distance" (not "-distance") for ascending order.
+- filter[latitude]: enter the testing latitude value.
+- filter[longitude]: enter the testing longitude value.
+
+Then click "Execute" button. You should be able to find a generated URL in Curl. **Hints**: Observe the generate URL and learn how to build that URL using variables. Remember to add `api_key={YOUR_MBTA_API_KEY}&` right after `?` in the URL.
+
+
 
 **Note**: You need to request an API key from [*MBTA V3 API Portal*](https://api-v3.mbta.com).
 
