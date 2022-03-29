@@ -28,7 +28,7 @@ Beacon St opp Walnut St
 
 Note: There are already [a few Python packages](https://wiki.python.org/moin/GIS/Web_services) that interface with mapping services, but part of this project is seeing how you might write your own such package from scratch.
 
-### Accessing web data programmatically
+### 1. Accessing web data programmatically
 APIs let you make requests using specifically constructed URLs and return data in a nicely structured format.
 
 There are three main steps to using any web API:
@@ -46,7 +46,7 @@ There are three main steps to using any web API:
 
     The first API we will use is the [*MapQuest*](https://developer.mapquest.com/documentation/geocoding-api/address/get/). This tool (among other things) allows you to specify a place name or address and receive its latitude and longitude. Take a few minutes to read the documentation (it's quite good). You need to sign up and get a free API Key from [here](https://developer.mapquest.com/). 
 
-### Structured data responses (JSON)
+### 2. Structured data responses (JSON)
 Back? Ok cool, let's try it out in Python. We're going to request the response in JSON format, which we can decode using Python's [`json` module](https://docs.python.org/3.10/library/json.html).
 ```python
 import urllib.request
@@ -71,7 +71,7 @@ We used the [`pprint` module](https://docs.python.org/3/library/pprint.html) to 
 #### What you need to do
 Write a function (maybe two) to extract the latitude and longitude from the JSON response.
 
-### Speaking URL
+### 3. Speaking URL
 In the above example we passed a hard-coded URL to the `urlopen` function, but in your code you will need to generate the parameters based on user input. Check out [*Understanding URLs*](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_URL) and their structure for a helpful guide to URL components and encoding.
 
 You can build up the URL string manually, but it's probably helpful to check out [`urlencode` function](https://docs.python.org/3.10/library/urllib.parse.html#urllib.parse.urlencode) from `urllib.request` and its [examples](https://docs.python.org/3.10/library/urllib.request.html#urllib-examples).
@@ -79,7 +79,7 @@ You can build up the URL string manually, but it's probably helpful to check out
 #### What you need to do
 Write a function that takes an address or place name as input and returns a properly encoded URL to make a MapQuest geocode request.
 
-### Getting local
+### 4. Getting local
 
 Now that we can find the coordinates of a given place, let's take things one step further and find the closest public transportation stop to that location. 
 
@@ -103,12 +103,12 @@ Write a function that takes a latitude and longitude and returns the name of the
 Note: Sadly there are no MBTA stops close enough to Babson College - you have to get out into the city!
 
 
-### To Wrap-up
+### 5. To Wrap-up
 Combine your functions from the previous sections to create a tool that takes a place name or address as input, finds its latitude/longitude, and returns the nearest MBTA stop and whether it is wheelchair accessible.
 
 Note: Coordinate precision matters! Check [xkcd 2170](https://xkcd.com/2170/) and [explanation](https://www.explainxkcd.com/wiki/index.php/2170:_Coordinate_Precision). 
 
-### Making it cooler (Optional)
+### 6. Making it cooler (Optional)
 
 - Try out some other APIs - there are a lot of resources, and we have barely scratched the surface.
 - By default, `stops` gives all types of transportation, including buses and commuter rail. Allow the user to specify how they'd like to travel (e.g. T only).
@@ -121,7 +121,7 @@ The goal for Part 2 is to build a simple website that uses the module `mbta_help
 
 `Flask` is a lightweight and powerful web framework for Python. It's easy to learn and simple to use, allowing you to build your web app in a short amount of time. 
 
-### Get Started
+### 1. Get Started
 You need to first install `Flask`. Run the following command:
 ```shell
 >pip install Flask
@@ -130,7 +130,7 @@ You need to first install `Flask`. Run the following command:
 # macOS/Linux
 >python3 -m pip install Flask
 ```
-### Why Flask?
+### 2. Why Flask?
 
 In the introduction, we defined `Flask` as a "web framework", but what does that actually mean? Let's dig deeper. Before this, let's develop a better understanding of how the internet works.
 
@@ -138,10 +138,9 @@ When you open up a web page in your browser (e.g. Chrome, Firefox, etc.), it mak
 
 This is where Flask comes in - it allows you to create the logic to make a web server quickly in Python. You can write logic that will execute when a request is made for one of your routes (e.g. www.mysuperawesomevlog.com/new).
 
-### Quickstart
-Flask Quickstart documentation: <https://flask.palletsprojects.com/en/2.0.x/quickstart/>
+### 3. Quickstart
 
-Read the following sections
+Read the following sections of [Flask Quickstart documentation](https://flask.palletsprojects.com/en/2.0.x/quickstart/):
 
 - A Minimal Application
 - What to do if the Server does not Start    
@@ -170,7 +169,7 @@ What use is a web application if you can't get any data back from the user? Let'
 
 It will be up to you to make this happen. If you feel confident in your ability to implement this, go for it! If you'd like more scaffolding, continue reading.
 
-### Tips and tricks
+### 4. Tips and tricks
 
 To complete this project, the official Flask documentation will get you pretty far. There is the [*full documentation*](https://flask.palletsprojects.com/en/2.0.x/#user-s-guide).
 
@@ -182,7 +181,7 @@ To complete this project, the official Flask documentation will get you pretty f
 
 - **Accessing the Form Data:** To access the form data, check out section [*'The Request Object'*](https://flask.palletsprojects.com/en/2.0.x/quickstart/#the-request-object) on using the Flask `request` utility.
 
-### Going further (Optional)
+### 5. Going further (Optional)
 
 - **Learn more about [Django](https://www.djangoproject.com/)**  - an alternative to Flask. They don't have many major differences other than some small quirks in conventions and style. 
 - **Want to keep track of some data in your web app?** Instead of using a .txt file or a pickle file, it's common practice in nearly any web app to use a database. A few especially well-known database choices are MySql, SQLite, or PostgreSQL, which all use SQL(Structured Query Language) to manipulate all stored, as do many other common relational databases. You also may have heard some buzz about MongoDb, which uses an unstructured data format in documents similar to JSON. MongoDb is stupidly easy to set up and use, but I'd stop and think first before jumping right in. It may be the easy choice, but representing your data intelligently in a relational table can be much more effective and less of a headache later on.
@@ -191,34 +190,30 @@ To complete this project, the official Flask documentation will get you pretty f
 
 ---
 ## Project Wrap-up
-### Getting Started
+### 1. Getting Started
 
 To start this project, you should fork the base repository for this project in class GitHub, and clone the forked repository in your GitHub. Remember, that you will want to have only one of your teammates fork the repo, and then the other members should be added as collaborators on GitHub for that repo.
 
 
-### Project Writeup and Reflection
+### 2. Project Writeup and Reflection
 Please write a short document in [Markdown format](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) (1 per team, not 1 per person) with the following sections:
 
-**Project Overview** [~1 paragraph]
+- **Project Overview** [~1 paragraph]
 Write a short abstract describing your project. Include all the extensions to the basic requirements.
 
-**Project Reflection** [~2 paragraphs]
+- **Project Reflection** [~2 paragraphs]
 After you finish the project, Please write a short document for reflection [~2 paragraphs]
 
-From a process point of view, what went well? What could you improve? Other possible reflection topics: Was your project appropriately scoped? Did you have a good plan for unit testing? What self-studying did you do? How will you use what you learned going forward? What do you wish you knew before you started that would have helped you succeed?
-
-Also discuss your team process in your reflection. How did you plan to divide the work (e.g. split by module/class, always pair program together, etc.) and how did it actually happen? Were there any issues that arose while working together, and how did you address them? What would you do differently next time?
+  1. From a process point of view, what went well? What could you improve? Other possible reflection topics: Was your project appropriately scoped? Did you have a good plan for unit testing? What self-studying did you do? How will you use what you learned going forward? What do you wish you knew before you started that would have helped you succeed?
+  2. Also discuss your team process in your reflection. How did you plan to divide the work (e.g. split by module/class, always pair program together, etc.) and how did it actually happen? Were there any issues that arose while working together, and how did you address them? What would you do differently next time?
 
 **Don't forget to include names of all the members.**
 
-### Turning in your assignment
+### 3. Turning in your assignment
 
 1. Push your completed code to the forked GitHub repository (depending on which team member's repository is being used to work on the project).
-
 2. Include your Project Writeup/Reflection in your GitHub repository. Make sure there is a link to this Markdown document in your README.md file in your GitHub repo. 
-
 3. Create a pull request to the upstream repository.
-
 4. In the comment area on Canvas, specify names of all team members and url of GitHub repository. **Everyone in the team needs to submit the zip file to Canvas and add comment.**
 
 
