@@ -127,7 +127,7 @@ You need to first install `Flask`. Run the following command:
 >pip install Flask
 # or
 >python -m pip install Flask
-# macOS/Linux
+# MacOS/Linux
 >python3 -m pip install Flask
 ```
 ### 2. Why Flask?
@@ -140,11 +140,9 @@ This is where Flask comes in - it allows you to create the logic to make a web s
 
 ### 3. Quickstart
 
-Read the following sections of [Flask Quickstart documentation](https://flask.palletsprojects.com/en/2.0.x/quickstart/):
+Read the following sections of [Flask Quickstart documentation](https://flask.palletsprojects.com/en/2.2.x/quickstart/):
 
 - A Minimal Application
-- What to do if the Server does not Start    
-    - Invalid Import Name
 - Debug Mode
 - Routing
     - Variable Rules
@@ -163,7 +161,7 @@ What use is a web application if you can't get any data back from the user? Let'
 
 1. Upon visiting the index page at `http://127.0.0.1:5000/`, the user will be greeted by a page that says hello, and includes an input **form** that requests a place name.
 2. Upon clicking the 'Submit' button, the data from the form will be sent via a POST request to the Flask backend at the route `POST /nearest`
-3. (Optional) Perform some simple validation on the user input. See [wtforms](https://flask.palletsprojects.com/en/2.0.x/patterns/wtforms/).
+3. (Optional) Perform some simple validation on the user input. See [wtforms](https://flask.palletsprojects.com/en/2.2.x/patterns/wtforms/).
 4. The Flask backend will handle the request to `POST /nearest_mbta`. Then your app will render a `mbta_station` page for the user - presenting nearest MBTA stop and whether it is wheelchair accessible. In this step, you need to use the code from Part 1.
 5. If something is wrong, the app will render a simple error page, which will include some indication that the search did not work, in addition to a button (or link) that will redirect the user back to the home page.
 
@@ -171,15 +169,15 @@ It will be up to you to make this happen. If you feel confident in your ability 
 
 ### 4. Tips and tricks
 
-To complete this project, the official Flask documentation will get you pretty far. There is the [*full documentation*](https://flask.palletsprojects.com/en/2.0.x/#user-s-guide).
+To complete this project, the official Flask documentation will get you pretty far. There is the [*full documentation*](https://flask.palletsprojects.com/en/2.2.x/#user-s-guide).
 
 - **HTML Forms:**. To make forms in HTML, check out [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form) and/or [*W3Schools*](https://www.w3schools.com/html/html_forms.asp). For even more information, check [*this*](https://lmgtfy.app/?q=html+forms) out.
 
 - **Sending `POST` Requests:** To send the data from the form in a `POST` request, use an input with type `submit`, and set the action of the form to reflect the destination in your routes.
 
-- **Handling POST Requests:** To learn more about handling post requests in Flask, read section [*HTTP Methods*](https://flask.palletsprojects.com/en/2.0.x/quickstart/#http-methods) again.
+- **Handling POST Requests:** To learn more about handling post requests in Flask, read section [*HTTP Methods*](https://flask.palletsprojects.com/en/2.2.x/quickstart/#http-methods) again.
 
-- **Accessing the Form Data:** To access the form data, check out section [*'The Request Object'*](https://flask.palletsprojects.com/en/2.0.x/quickstart/#the-request-object) on using the Flask `request` utility.
+- **Accessing the Form Data:** To access the form data, check out section [*'The Request Object'*](https://flask.palletsprojects.com/en/2.2.x/quickstart/#the-request-object) on using the Flask `request` utility.
 
 ### 5. Going further (Optional)
 
