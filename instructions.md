@@ -190,7 +190,7 @@ To complete this project, the official Flask documentation will get you pretty f
 After finishing the required parts of this project, you can spice it up by adding additional features. Some suggestions:
 
 1. Check out [7. Making it cooler (Optional)](#7-making-it-cooler-optional) section in Part 1 and [6. Going further (Optional)](#6-going-further-optional) section in Part 2. 
-2. Show weather infomration - although it may always be the same (at a point in time), no matter what location is entered because it is supposed in Great Boston area. Say "hello" to our old friend, [OpenWeatherMap API](https://openweathermap.org/api). 
+2. Show weather information - although it may always be the same (at a point in time), no matter what location is entered because it is supposed in Great Boston area. Say "hello" to our old friend, [OpenWeatherMap API](https://openweathermap.org/api). 
 3. Any interesting events going on in the nearby area? Try [Ticketmaster API](https://developer.ticketmaster.com/products-and-docs/apis/getting-started/) to find out concerts, sport games information.
 4. Yes, you guessed it! More APIs.
     - [GitHub Repo - Public APIs](https://github.com/public-apis/public-apis) 
