@@ -79,8 +79,13 @@ You can build up the URL string manually, but it's probably helpful to check out
 ### 4. Getting local
 Now that we can find the coordinates of a given place, let's take things one step further and find the closest public transportation stop to that location. 
 
-#### Just a glimpse of history: MBTA stations in 50s
-![Image of old T map with illustrations of each station](https://www.vanshnookenraggen.com/_index/wp-content/uploads/2017/08/MTA_System.jpg)
+<figure>
+<img src="https://www.vanshnookenraggen.com/_index/wp-content/uploads/2017/08/MTA_System.jpg" height="300" alt="old T map with illustrations of each station" style="display:block; margin-left:auto;margin-right:auto;"/>
+<figcaption align = "center">
+<b>Just a glimpse of history: MBTA stations in 50s
+</b>
+</figcaption>
+</figure>
 
 To accomplish this, we will use the [*MBTA-realtime API*](https://api-v3.mbta.com/docs/swagger/index.html). Check out the details for `GET /stops` in the documentation. **Hints**: Prepare valid latitude and longitude numbers of any Boston address for testing.Under `GET /stops`, click "Try it out" button. Enter/select the following parameters:
 - sort: select "distance" (not "-distance") for ascending order.
@@ -99,7 +104,14 @@ Note: Sadly there are no MBTA stops close enough to Babson College - you have to
 Combine your functions from the previous sections to create a tool that takes a place name or address as input, finds its latitude/longitude, and returns the nearest MBTA stop and whether it is wheelchair accessible.
 
 **Note**: Coordinate precision matters! Check [xkcd 2170](https://xkcd.com/2170/) and [explanation](https://www.explainxkcd.com/wiki/index.php/2170:_Coordinate_Precision).
-![xkcd - Coordinate Precision](https://imgs.xkcd.com/comics/coordinate_precision_2x.png) 
+<figure>
+<img src="https://imgs.xkcd.com/comics/coordinate_precision_2x.png" height="400" alt="xkcd 2170" style="display:block; margin-left:auto;margin-right:auto;"/>
+<figcaption align = "center">
+<b>xkcd 2170 - What the Number of Digits in Your Coordinates Means</b>
+</figcaption>
+</figure>
+
+
 
 ### 7. Making it cooler (Optional)
 - Try out some other MBTA APIs - there are a lot of resources, and we have barely scratched the surface.
