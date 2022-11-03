@@ -26,7 +26,7 @@ The goal for Part 1 to deal with geographical data. You will write a tool that t
 Beacon St opp Walnut St
 ```
 
-Note: There are already [a few Python packages](https://wiki.python.org/moin/GIS/Web_services) that interface with mapping services, but part of this project is seeing how you might write your own such package from scratch.
+**Note**: It will be up to you to make this happen. If you feel confident in your ability and you enjoy challenges, delete `mbta_helper.py` in the folder, implement it all by yourself! If you'd like more scaffolding, you can open and read code in `mbta_helper.py`, while reading the following sections.
 
 ### 1. Accessing web data programmatically
 APIs let you make requests using specifically constructed URLs and return data in a nicely structured format.
@@ -41,8 +41,7 @@ There are three main steps to using any web API:
 
     Web services generally limit the number of requests you can make by requiring a unique user key to be sent with each request. In order to get a key you'll need to agree to their terms, which restrict how you can use the service. In this class we will never ask you to agree to the terms you aren't comfortable with - contact your professor if you have an issue.
 
-3. **Test out your application and launch to users**
-    (A.K.A. the fun part):
+3. **Test out your application and launch to users** (A.K.A. the fun part):
 
     The first API we will use is the [*MapQuest*](https://developer.mapquest.com/documentation/geocoding-api/address/get/). This tool (among other things) allows you to specify a place name or address and receive its latitude and longitude. Take a few minutes to read the documentation (it's quite good). You need to sign up and get a free API Key from [here](https://developer.mapquest.com/). 
 
@@ -68,19 +67,16 @@ We used the [`pprint` module](https://docs.python.org/3/library/pprint.html) to 
 02481
 ```
 
-#### What you need to do
-Write a function (maybe two) to extract the latitude and longitude from the JSON response.
+**What you need to do**: write a function (maybe two) to extract the latitude and longitude from the JSON response.
 
 ### 3. Speaking URL
 In the above example we passed a hard-coded URL to the `urlopen` function, but in your code you will need to generate the parameters based on user input. Check out [*Understanding URLs*](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_URL) and their structure for a helpful guide to URL components and encoding.
 
 You can build up the URL string manually, but it's probably helpful to check out [`urlencode` function](https://docs.python.org/3.10/library/urllib.parse.html#urllib.parse.urlencode) from `urllib.request` and its [examples](https://docs.python.org/3.10/library/urllib.request.html#urllib-examples).
 
-#### What you need to do
-Write a function that takes an address or place name as input and returns a properly encoded URL to make a MapQuest geocode request.
+**What you need to do**: write a function that takes an address or place name as input and returns a properly encoded URL to make a MapQuest geocode request.
 
 ### 4. Getting local
-
 Now that we can find the coordinates of a given place, let's take things one step further and find the closest public transportation stop to that location. 
 
 #### Just a glimpse of history: MBTA stations in 50s
@@ -93,27 +89,23 @@ To accomplish this, we will use the [*MBTA-realtime API*](https://api-v3.mbta.co
 
 Then click "Execute" button. You should be able to find a generated URL in Curl. **Hints**: Observe the generate URL and learn how to build that URL using variables. Remember to add `api_key={YOUR_MBTA_API_KEY}&` right after `?` in the URL.
 
-
-
 **Note**: You need to request an API key from [*MBTA V3 API Portal*](https://api-v3.mbta.com).
 
-#### What you need to do
-Write a function that takes a latitude and longitude and returns the name of the closest MBTA stop and whether it is wheelchair accessible.
+**What you need to do**: create a function that takes a latitude and longitude and returns the name of the closest MBTA stop and whether it is wheelchair accessible.
 
 Note: Sadly there are no MBTA stops close enough to Babson College - you have to get out into the city!
 
-
-### 5. To Wrap-up
+### 6. To Wrap-up
 Combine your functions from the previous sections to create a tool that takes a place name or address as input, finds its latitude/longitude, and returns the nearest MBTA stop and whether it is wheelchair accessible.
 
-Note: Coordinate precision matters! Check [xkcd 2170](https://xkcd.com/2170/) and [explanation](https://www.explainxkcd.com/wiki/index.php/2170:_Coordinate_Precision). 
+**Note**: Coordinate precision matters! Check [xkcd 2170](https://xkcd.com/2170/) and [explanation](https://www.explainxkcd.com/wiki/index.php/2170:_Coordinate_Precision).
+![xkcd - Coordinate Precision](https://imgs.xkcd.com/comics/coordinate_precision_2x.png) 
 
-### 6. Making it cooler (Optional)
-
-- Try out some other APIs - there are a lot of resources, and we have barely scratched the surface.
+### 7. Making it cooler (Optional)
+- Try out some other MBTA APIs - there are a lot of resources, and we have barely scratched the surface.
 - By default, `stops` gives all types of transportation, including buses and commuter rail. Allow the user to specify how they'd like to travel (e.g. T only).
 - Add in the MBTA realtime arrival data to help choose what station you should walk to.
-- Connect with other local services. Example: the City of Boston has [an app](https://www.boston.gov/transportation/street-bump)  that uses a phone's GPS and accelerometer to automatically report potholes to be fixed. You can also see many other apps developed for Boston residents [here](https://www.boston.gov/departments/innovation-and-technology/apps).
+- Connect with other local services. Example: the City of Boston has [an app](https://www.boston.gov/transportation/street-bump)  that uses a phone's GPS and accelerometer to automatically report potholes to be fixed. You can also see many other apps developed for Boston residents [here](https://www.boston.gov/departments/innovation-and-technology/city-boston-apps).
 
 ---
 ## Part 2: Web App
@@ -127,19 +119,17 @@ You need to first install `Flask`. Run the following command:
 >pip install Flask
 # or
 >python -m pip install Flask
-# MacOS/Linux
+# on MacOS/Linux:
 >python3 -m pip install Flask
 ```
 ### 2. Why Flask?
-
 In the introduction, we defined `Flask` as a "web framework", but what does that actually mean? Let's dig deeper. Before this, let's develop a better understanding of how the internet works.
 
 When you open up a web page in your browser (e.g. Chrome, Firefox, etc.), it makes an HTTP request to a server somewhere in the world. This could be something like GET me the home page. This server handles this request, sending back data (this can be in the form of HTML, JSON, XML, etc.), which is rendered by your browser.
 
-This is where Flask comes in - it allows you to create the logic to make a web server quickly in Python. You can write logic that will execute when a request is made for one of your routes (e.g. www.mysuperawesomevlog.com/new).
+This is where Flask comes in - it allows you to create the logic to make a web server quickly in Python. You can write logic that will execute when a request is made for one of your routes (e.g. www.MySuperAwesomeVlog.com/new).
 
-### 3. Quickstart
-
+### 3. Flask Quickstart
 Read the following sections of [Flask Quickstart documentation](https://flask.palletsprojects.com/en/2.2.x/quickstart/):
 
 - A Minimal Application
@@ -153,11 +143,11 @@ Read the following sections of [Flask Quickstart documentation](https://flask.pa
 - Rendering Templates
 - Redirects and Errors
 
-**Follow every single step in this tutorial. Replicate all the code. Make the server run!** 
+**Note**: Follow every single step in this tutorial. Replicate all the code. Make the server run!
 
-### What you need to do next - build your own app by getting input from the user
+### 4. What you need to do next - build your own app by getting input from the user
 
-What use is a web application if you can't get any data back from the user? Let's set up our MBTA helper app. Here are our end specifications:
+What use is a web application if you can't get any data back from the user? Let's set up our **MBTA helper** app. Here are our end specifications:
 
 1. Upon visiting the index page at `http://127.0.0.1:5000/`, the user will be greeted by a page that says hello, and includes an input **form** that requests a place name.
 2. Upon clicking the 'Submit' button, the data from the form will be sent via a POST request to the Flask backend at the route `POST /nearest`
@@ -167,7 +157,7 @@ What use is a web application if you can't get any data back from the user? Let'
 
 It will be up to you to make this happen. If you feel confident in your ability to implement this, go for it! If you'd like more scaffolding, continue reading.
 
-### 4. Tips and tricks
+### 5. Tips and tricks
 
 To complete this project, the official Flask documentation will get you pretty far. There is the [*full documentation*](https://flask.palletsprojects.com/en/2.2.x/#user-s-guide).
 
@@ -179,38 +169,50 @@ To complete this project, the official Flask documentation will get you pretty f
 
 - **Accessing the Form Data:** To access the form data, check out section [*'The Request Object'*](https://flask.palletsprojects.com/en/2.2.x/quickstart/#the-request-object) on using the Flask `request` utility.
 
-### 5. Going further (Optional)
+### 6. Going further (Optional)
 
-- **Learn more about [Django](https://www.djangoproject.com/)**  - an alternative to Flask. They don't have many major differences other than some small quirks in conventions and style. 
 - **Want to keep track of some data in your web app?** Instead of using a .txt file or a pickle file, it's common practice in nearly any web app to use a database. A few especially well-known database choices are MySql, SQLite, or PostgreSQL, which all use SQL(Structured Query Language) to manipulate all stored, as do many other common relational databases. You also may have heard some buzz about MongoDb, which uses an unstructured data format in documents similar to JSON. MongoDb is stupidly easy to set up and use, but I'd stop and think first before jumping right in. It may be the easy choice, but representing your data intelligently in a relational table can be much more effective and less of a headache later on.
-- **But HTML is so ugly!** HTML alone is very ugly. That's why we use CSS (Cascading Style Sheets) to add some extra flair and style to our HTML. You can change pretty much anything about HTML - colors, shapes, sizes, placement, etc. with CSS rules. It's also pretty simple to write. Check out resources such as [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps) and/or [W3Schools](https://www.w3schools.com/css/css_intro.asp) to learn more about CSS.
-- **What about making my website dynamic?** Our class may be a class in Python, but we can venture out a little and use some jQuery/Bootstrap. They might seem scary, but you use it in a way similar to adding/linking CSS styling to your HTML. You write scripts in JavaScript (which isn't too difficult), which can allow you to add beautiful responsive and dynamic content to your web app.
+- **But HTML is so ugly!** HTML alone could be ugly. That's why we use CSS (Cascading Style Sheets) to add some extra flair and style to our HTML. You can change pretty much anything about HTML - colors, shapes, sizes, placement, etc. with CSS rules. It's also pretty simple to write. Check out resources such as [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps) and/or [W3Schools](https://www.w3schools.com/css/css_intro.asp) to learn more about CSS.
+- **What about making my website dynamic?** Our class may be a class in Python, but we can venture out a little and use some Bootstrap/jQuery/Tailwind. They might sound scary, but you use it in a way similar to adding/linking CSS styling to your HTML. You write scripts in vanilla JavaScript (which isn't too difficult), which can allow you to add beautiful responsive and dynamic content to your web app.
+- **Learn more about [Django](https://www.djangoproject.com/)**  - an alternative to Flask. They don't have many major differences other than some small quirks in conventions and style. 
+
+---
+
+## Part 3: *Wow!* Factors
+
+After finishing the required parts of this project, you can spice it up by adding additional features. Some suggestions:
+
+1. Check out [7. Making it cooler (Optional)](#7-making-it-cooler-optional) section in Part 1 and [6. Going further (Optional)](#6-going-further-optional) section in Part 2. 
+2. Show weather infomration - although it may always be the same (at a point in time), no matter what location is entered because it is supposed in Great Boston area. Say "hello" to our old friend, [OpenWeatherMap API](https://openweathermap.org/api). 
+3. Any interesting events going on in the nearby area? Try [Ticketmaster API](https://developer.ticketmaster.com/products-and-docs/apis/getting-started/) to find out concerts, sport games information.
+4. Yes, you guessed it! More APIs.
+    - [GitHub Repo - Public APIs](https://github.com/public-apis/public-apis) 
+    - [RapidAPI - Discover More APIs](https://rapidapi.com/hub)
 
 ---
 ## Project Wrap-up
 ### 1. Getting Started
-
 To start this project, you should fork the base repository for this project in class GitHub, and clone the forked repository in your GitHub. Remember, that you will want to have only one of your teammates fork the repo, and then the other members should be added as collaborators on GitHub for that repo.
 
 
 ### 2. Project Writeup and Reflection
 Please write a short document in [Markdown format](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) (1 per team, not 1 per person) with the following sections:
 
-- **Project Overview** [~1 paragraph]
-Write a short abstract describing your project. Include all the extensions to the basic requirements.
+- **Project Overview**: (~1 paragraph) Write a short abstract describing your project. Include all the extensions to the basic requirements.
 
-- **Project Reflection** [~2 paragraphs]
-After you finish the project, Please write a short document for reflection [~2 paragraphs]
+- **Project Reflection**: (~2 paragraphs)
+After you finish the project, Please write a short document for reflection.
 
   1. From a process point of view, what went well? What could you improve? Other possible reflection topics: Was your project appropriately scoped? Did you have a good plan for unit testing? What self-studying did you do? How will you use what you learned going forward? What do you wish you knew before you started that would have helped you succeed?
+   
   2. Also discuss your team process in your reflection. How did you plan to divide the work (e.g. split by module/class, always pair program together, etc.) and how did it actually happen? Were there any issues that arose while working together, and how did you address them? What would you do differently next time?
 
-**Don't forget to include names of all the members.**
+**Don't forget to include names of all the team members.**
 
 ### 3. Turning in your assignment
 
 1. Push your completed code to the forked GitHub repository (depending on which team member's repository is being used to work on the project).
-2. Include your Project Writeup/Reflection in your GitHub repository. Make sure there is a link to this Markdown document in your README.md file in your GitHub repo. 
+2. Include your Project Writeup/Reflection in your GitHub repository. Make sure there is a link to this Markdown document in your ***README.md*** file in your GitHub repo. 
 3. Create a pull request to the upstream repository.
 4. In the comment area on Canvas, specify names of all team members and url of GitHub repository. **Everyone in the team needs to submit on Canvas and add comment.**
 
