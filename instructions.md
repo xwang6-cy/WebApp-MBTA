@@ -79,8 +79,8 @@ You can build up the URL string manually, but it's probably helpful to check out
 ### 4. Getting local
 Now that we can find the coordinates of a given place, let's take things one step further and find the closest public transportation stop to that location. 
 
-<figure style="margin-left:auto;margin-right:auto;">
-<img src="https://www.vanshnookenraggen.com/_index/wp-content/uploads/2017/08/MTA_System.jpg" height="300" alt="old T map with illustrations of each station" />
+<figure style="width:80%;margin-left:auto;margin-right:auto;">
+<img src="https://www.vanshnookenraggen.com/_index/wp-content/uploads/2017/08/MTA_System.jpg" height="300" alt="old T map with illustrations of each station" style="display:block;margin-left:auto;margin-right:auto;"/>
 <figcaption style="text-align:center">
 Just a glimpse of history: MBTA stations in 50s
 </figcaption>
