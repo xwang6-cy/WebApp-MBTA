@@ -42,7 +42,7 @@ APIs allow you make requests using specifically constructed URLs and return data
 
 2. **Request an API developer key:**
 
-    You will need to request a unique user key to be sent with each request since web services generally limit the number of requests you can make. In order to get a key, you will need to agree to the API's terms, which restrict how you can use the service. If you are uncomfortable with any of the terms, please contact your professor.
+    You will need to request a unique user key/access token to be sent with each request since web services generally limit the number of requests you can make. In order to get a key/token, you will need to agree to the API's terms, which restrict how you can use the service. If you are uncomfortable with any of the terms, please contact your professor.
 
 3. **Test your application and launch to users** (A.K.A. the fun part):
 
@@ -56,9 +56,9 @@ import urllib.request
 import json
 from pprint import pprint
 
-MAPBOX_API_KEY = 'YOUR MAPBOX API KEY'
+MAPBOX_TOKEN = 'YOUR MAPBOX API ACCESS TOKEN'
 search_query = 'Babson%20College'
-url = f'https://api.mapbox.com/geocoding/v5/mapbox.places/{search_query}.json?access_token={MAPBOX_API_KEY}&types=poi'
+url = f'https://api.mapbox.com/geocoding/v5/mapbox.places/{search_query}.json?access_token={MAPBOX_TOKEN}&types=poi'
 
 with urllib.request.urlopen(url) as f:
     response_text = f.read().decode('utf-8')
