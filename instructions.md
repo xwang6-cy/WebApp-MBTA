@@ -57,8 +57,8 @@ import json
 from pprint import pprint
 
 MAPBOX_TOKEN = 'YOUR MAPBOX API ACCESS TOKEN'
-search_query = 'Babson%20College'
-url = f'https://api.mapbox.com/geocoding/v5/mapbox.places/{search_query}.json?access_token={MAPBOX_TOKEN}&types=poi'
+search_text = 'Babson%20College'
+url = f'https://api.mapbox.com/geocoding/v5/mapbox.places/{search_text}.json?access_token={MAPBOX_TOKEN}&types=poi'
 
 with urllib.request.urlopen(url) as f:
     response_text = f.read().decode('utf-8')
