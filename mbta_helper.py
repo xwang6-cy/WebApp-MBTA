@@ -10,7 +10,7 @@ MBTA_BASE_URL = "https://api-v3.mbta.com/stops"
 # A little bit of scaffolding if you want to use it
 
 
-def get_json(url):
+def get_json(url: str) -> dict:
     """
     Given a properly formatted URL for a JSON web API request, return a Python JSON object containing the response to that request.
 
@@ -19,7 +19,7 @@ def get_json(url):
     pass
 
 
-def get_lat_long(place_name):
+def get_lat_long(place_name: str) -> tuple[str, str]:
     """
     Given a place name or address, return a (latitude, longitude) tuple with the coordinates of the given place.
 
@@ -28,7 +28,7 @@ def get_lat_long(place_name):
     pass
 
 
-def get_nearest_station(latitude, longitude):
+def get_nearest_station(latitude: str, longitude: str) -> tuple[str, bool]:
     """
     Given latitude and longitude strings, return a (station_name, wheelchair_accessible) tuple for the nearest MBTA station to the given coordinates.
 
@@ -37,7 +37,7 @@ def get_nearest_station(latitude, longitude):
     pass
 
 
-def find_stop_near(place_name):
+def find_stop_near(place_name: str) -> tuple[str, bool]:
     """
     Given a place name or address, return the nearest MBTA stop and whether it is wheelchair accessible.
 
