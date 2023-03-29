@@ -1,10 +1,10 @@
-# Web App Development - MBTA Helper
+# Web App Developement Project - MBTA Helper
 
 ## Introduction
 
 Welcome to the MBTA Helper project! 
 
-You may have used multiple Python libraries to access information on the Internet. For example, `tweepy` can get Twitter data by interacting with Twitter's application programming interface (API). In this project, you will access web APIs directly and begin to write your own package/program to connect with new data sources. Then you will build a simple website containing some webpages with a small amount of dynamic content using the `Flask` web framework. This website will help people find a nearby MBTA station and other information by providing an address or point of interest. As part of the project, you are encouraged to use **ChatGPT** to explore APIs and Python libraries that have not been covered yet. 
+You may have used multiple Python libraries to access information on the Internet. For example, `tweepy` can get Twitter data by interacting with Twitter's application programming interface (API). In this project, you will access web APIs directly and begin to write your own package/program to connect with new data sources. Then you will build a simple website containing some webpages with a small amount of dynamic content using the `Flask` web framework. This website will help people find a nearby MBTA station and other information by providing an address or point of interest. As part of the project, you are encouraged to use ChatGPT to explore APIs and Python libraries that have not been covered yet. 
 
 ### Skills Emphasized
 
@@ -16,9 +16,8 @@ Throughout this project, you'll focus on developing the following skills:
 
 ### Team Logistics:
 
-- You must work in a team.
-- Your partners should be from the same term-project team.
-- One team member should fork this base repository for the project. The person who forks the repository should then add their team members as collaborators on GitHub for that repo. This will ensure that everyone has access to the code and can work together effectively.
+- You can work in a team or choose to work independently.
+- If you work in a team, one team member should fork this base repository for the project. The person who forks the repository should then add their team members as collaborators on GitHub for that repository. This will ensure that everyone has access to the code and can work together effectively.
 
 ---
 ## Part 1: Geocoding and Web APIs
@@ -58,8 +57,8 @@ from pprint import pprint
 
 MAPBOX_BASE_URL = "https://api.mapbox.com/geocoding/v5/mapbox.places"
 MAPBOX_TOKEN = 'YOUR MAPBOX API ACCESS TOKEN'
-search_text = 'Babson%20College'
-url = f'{MAPBOX_BASE_URL}/{search_text}.json?access_token={MAPBOX_TOKEN}&types=poi'
+query = 'Babson%20College'
+url=f'{MAPBOX_BASE_URL}/{query}.json?access_token={MAPBOX_TOKEN}&types=poi'
 print(url) # Try this URL in your browser first
 
 with urllib.request.urlopen(url) as f:
@@ -137,11 +136,9 @@ To achieve this, we will use `Flask` - a lightweight and powerful web framework 
 You need to first install `Flask`. Run the following command:
 
 ```shell
-> pip install flask
-# or
-> python -m pip install flask
-# on MacOS/Linux:
-> python3 -m pip install flask
+> python -m pip install flask # on Windows
+# or 
+> python3 -m pip install flask # on MacOS/Linux
 ```
 
 ### 2. Why Flask?
@@ -156,7 +153,6 @@ This is where Flask comes in - it enables you to create the logic to make a web 
 
 Read the following sections of [Flask Quickstart documentation](https://flask.palletsprojects.com/en/2.2.x/quickstart/):
 
-```
 - A Minimal Application
 - Debug Mode
 - Routing
@@ -167,8 +163,8 @@ Read the following sections of [Flask Quickstart documentation](https://flask.pa
 - Static Files
 - Rendering Templates
 - Redirects and Errors
-```
-**Note**: Follow every single step in this tutorial. Replicate all the code. Make the server run!
+
+**Suggestion**: Follow every single step in this tutorial. Replicate all the code. Make the server run!
 
 ### 4. Building Your App and Getting Input from the User
 
@@ -197,8 +193,11 @@ To complete this project, the official [Flask documentation](https://flask.palle
 ### 6. Going Further (Optional)
 
 - **Want to keep track of some data in your web app?** Instead of using a `.txt` file or a `pickle` file, it's common practice in nearly any web app to use a **database**. A few especially well-known database choices are `MySQL`, `SQLite` (my go-to choice for a quick demo), or `PostgreSQL`, which all use SQL(Structured Query Language) to manipulate all stored data, as do many other common relational databases. Alternatively, you may use `MongoDb`, which stores data in an unstructured format similar to JSON. MongoDb is stupidly easy to set up and use, but I'd stop and think first before jumping right in. It may be the easy choice, but representing your data intelligently in a relational table can be much more effective and less of a headache later on.
+  
 - **But HTML is so ugly!** HTML alone may not look visually appealing, which is why we use CSS (Cascading Style Sheets) to add some extra flair and style to our HTML. You can change pretty much anything about HTML - colors, shapes, sizes, placement, etc. - with CSS rules. It's also pretty simple to write. Check out resources such as [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps) and/or [W3Schools](https://www.w3schools.com/css/css_intro.asp) to learn more about CSS.
+  
 - **What about making my website more dynamic?** While this class may focus on Python, you can venture out a little and use `Bootstrap`, `jQuery`, or `Tailwind` to add dynamic elements to your web app. They might sound scary, but you use it in a way similar to adding/linking CSS styling to your HTML. You can also write vanilla JavaScript (which isn't too difficult), which allows you to create more beautiful, responsive, and dynamic content for your web app.
+  
 - **Interested in an alternative to Flask?** Learn more about [Django](https://www.djangoproject.com/). They don't have many major differences other than some small quirks in conventions and style. 
 
 ---
@@ -209,8 +208,8 @@ After completing the required parts of this project, you can spice it up by addi
 1. Refer to [7. Making it Cooler (Optional)](#7-making-it-cooler-optional) section in Part 1 and [6. Going Further (Optional)](#6-going-further-optional) section in Part 2 for more ideas.
 2. Display weather information - although it may always be the same (at a particular point in time), no matter what location is entered because it is supposed in Great Boston area. Say "hello" to our old friend, [OpenWeatherMap API](https://openweathermap.org/api). 
 3. Any interesting events in the nearby area? Try [Ticketmaster API](https://developer.ticketmaster.com/products-and-docs/apis/getting-started/) to find out concerts, sport events information.
-4. Yes, you guessed it! - More APIs.
-    - [GitHub Repo - Public APIs](https://github.com/public-apis/public-apis) 
+4. Yes, you guessed it! - More APIs. Some suggestions:
+    - [GitHub repository - Public APIs](https://github.com/public-apis/public-apis) 
     - [RapidAPI - Discover More APIs](https://rapidapi.com/hub)
 
 ---
@@ -223,13 +222,11 @@ To begin the assignment, one team member should **fork** this base repository, t
 
 ### 2. Project Writeup and Reflection
 
-Write a summary of your project and your reflections on it in [`README.md`](README.md), using [Markdown format](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)  (1 per team, not 1 per person). There is no need to use fancy words or ChatGPT. The [`README.md`](README.md) file should include the following sections:
+Write a summary of your project and your reflections on it in [`README.md`](README.md), using [Markdown format](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) (1 per team, not 1 per person).The [`README.md`](README.md) file should include the following sections:
 
 **1. Project Overview** (~1 paragraph)
 
-Write a short abstract describing your project. Include all the extensions to the basic requirements.
-
-**Don't forget to include names of all the team members.**
+Write a short abstract describing your project. Include all the extensions to the basic requirements. 
 
 **2. Reflection** (~3 paragraphs + screenshots)
 
@@ -241,6 +238,10 @@ After you finish the project, Please write a short document for reflection.
 
 3. Discuss from a learning perspective, what you learned through this project and how you'll use what you learned going forward. Reflect on how ChatGPT helped you and what you wish you knew beforehand that could have helped you succeed. Consider including screenshots to demonstrate your project's progress and development.
 
+**Note**: 
+- Begin by including the names of all team members at the top of the document.
+- Make the `README.md` file clear and concise. There is no need to use fancy words or ChatGPT. 
+
 ### 3. Turning in Assignment
 
 1. Push your completed code and updated `README.md` to the forked GitHub repository (depending on which team member's repository is being used to work on the project).
@@ -249,4 +250,4 @@ After you finish the project, Please write a short document for reflection.
 
 
 ---
-*updated: 3/18/2023*
+*updated: 3/29/2023*
