@@ -1,7 +1,3 @@
-"""
-Simple "Hello, World" application using Flask
-"""
-
 from flask import Flask
 
 
