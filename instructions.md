@@ -56,13 +56,14 @@ import urllib.request
 import json
 from pprint import pprint
 
+MAPBOX_BASE_URL = "https://api.mapbox.com/geocoding/v5/mapbox.places"
 MAPBOX_TOKEN = 'YOUR MAPBOX API ACCESS TOKEN'
 search_text = 'Babson%20College'
-url = f'https://api.mapbox.com/geocoding/v5/mapbox.places/{search_text}.json?access_token={MAPBOX_TOKEN}&types=poi'
+url = f'{MAPBOX_BASE_URL}/{search_text}.json?access_token={MAPBOX_TOKEN}&types=poi'
+print(url) # Try this URL in your browser first
 
 with urllib.request.urlopen(url) as f:
     response_text = f.read().decode('utf-8')
-    # print(response_text)
     response_data = json.loads(response_text)
     pprint(response_data)
 ```
