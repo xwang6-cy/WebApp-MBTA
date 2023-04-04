@@ -21,7 +21,7 @@ def get_weather(place_name):
     else:
         return None, None
 
-@app.route('/index', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
         place_name = request.form['place_name']

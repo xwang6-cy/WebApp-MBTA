@@ -23,12 +23,19 @@
         h1{
             text-align: center;
             font-size: 36px;
+            color: black;
         }
         body {
+            
             text-align: center;
             font-size: 26px;
+            animation: bg-animation 10s linear infinite;
+            background-image: url("https://media3.giphy.com/media/3oz8xtBx06mcZWoNJm/giphy.gif");
+            background-size: cover;
+            background-position: center;
+            color: whitesmoke;
         }
-    </style>
+    </style> 
 </head>
 <body>
     <h1>Nearest MBTA Station to {{place_name}}</h1>
@@ -38,6 +45,9 @@
     {% else %}
         <p> This station is not accesible.</p>
     {% endif %}
+    <p>The weather is <span style="color: blue">{{weather_description}}</span>.</p>
+    <p>The current Temperature is <span style="color: red">{{temperature}}</span> Celsius.</p>
     <a href="/">Back to Home</a>
+        
 </body>
 </html>
