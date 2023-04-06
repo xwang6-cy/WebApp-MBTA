@@ -2,11 +2,54 @@
 <html>
 <head>
     <title>MBTA Stop Finder</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        .container {
+        display: flex;
+        /* enable flexbox */
+        flex-direction: column;
+        /* stack elements vertically */
+        justify-content: center;
+        /* center vertically */
+        align-items: center;
+        /* center horizontally */
+        height: 150vh;
+        /* set the height of the container to the full height of the viewport */
+        }
+
+        h1{
+            text-align: center;
+            font-size: 36px;
+            color: black;
+        }
+        body {
+            
+            text-align: center;
+            font-size: 26px;
+            animation: bg-animation 10s linear infinite;
+            background-image: url("https://media3.giphy.com/media/3oz8xtBx06mcZWoNJm/giphy.gif");
+            background-size: cover;
+            background-position: center;
+            color: whitesmoke;
+        }
+    </style> 
 </head>
 <body>
-    <h1>Result</h1>
-    <p>{{ message }}</p>
-    <br>
-    <a href="/">Back to Home</a>
+    <h1>Nearest MBTA Station to {{place_name}}</h1>
+    <p>The nearest MBTA station to {{place_name}} is {{station_name}}</p>
+    {% if wheelchair_assessible %}
+        <p> This station is accessible.</p>
+    {% else %}
+        <p> This station is not accesible.</p>
+    {% endif %}
+    <p>The weather is <span style="color: blue">{{weather_description}}</span>.</p>
+    <p>The current Temperature is <span style="color: red">{{temperature}}</span> Celsius.</p>
+    <P>A musical event near by is<span style="color: blue"> {{event_name}}</span>.</P>
+    <p>It starts on:<span style ="color:red"> {{event_date}} </span></p>
+
+    <a href="/">Back to Home</a>   
 </body>
 </html>
